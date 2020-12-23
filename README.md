@@ -1,62 +1,75 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Swed
+## Sobre
+O Swed é um acrônimo para **S**istema **we**b de **d**ivulgação de estabelecimentos, que permite aos gerentes divulgarem seus estabelecimentos e aos usuários encontrar de forma facilitada os produtos e serviços da região desejada.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Badge](https://img.shields.io/github/license/kleysonfmadruga/swed)
+![Badge](https://img.shields.io/github/last-commit/kleysonfmadruga/swed)
 
-## About Laravel
+## Tecnologias
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+O projeto foi construido utilizando as seguintes ferramentas e tecnologias:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [PHP](https://www.php.net/)
+- [Laravel](https://laravel.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [MySQL](https://www.mysql.com/)
+- [npm](https://www.npmjs.com/)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Testando localmente
 
-## Learning Laravel
+### Pré-requisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Antes de começar, é necessário que você tenha o [PHP](https://www.php.net/), o [Git](https://git-scm.com/), o [Composer](https://getcomposer.org/), o [MySQL](https://www.mysql.com/) e o [npm](https://www.npmjs.com/) instalados na sua máquina. Além disso, é preciso que haja um banco de dados chamado 'laravel' no servidor de banco de dados MySQL (o nome do banco de dados a ser utilizado pode ser alterado substituindo o valor da variável de ambiente DB_DATABASE definida no arquivo .env). Para fazer alterações no projeto, recomendo a utilização de algum editor de código, como o [VSCode](https://code.visualstudio.com/)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Rodando a aplicação
 
-## Laravel Sponsors
+```bash
+# Clone este repositório
+$ git clone https://github.com/kleysonfmadruga/swed
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+# Entre na pasta do projeto
+$ cd swed
 
-### Premium Partners
+# Instale as dependências de PHP do Laravel
+$ composer update
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+# Instale as dependências de Javascript do Laravel
+$ npm install
 
-## Contributing
+# Compile os assets de CSS e Javascript
+$ npm run dev
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Copie as variáveis de ambiente do arquivo de exemplo
+$ cp .env.example .env
 
-## Code of Conduct
+# Gere uma nova chave para a aplicação
+$ php artisan key:generate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Execute as migrações para criar as tabelas no banco de dados
+$ php artisan migrate
 
-## Security Vulnerabilities
+# Crie um link simbólico da pasta storages para a pasta public para torná-la pública
+$ php artisan storage:link
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Inicie o servidor
+$ php artisan serve
 
-## License
+# O servidor iniciará na porta: 8000 - acesse o site por <http://localhost:8000>
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Autores
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/alissonfelipee"><img src="https://avatars1.githubusercontent.com/u/62302819?s=460&v=4" width="100px;" alt=""/><br /><sub><b>Alisson Felipe</b></sub></a></td>
+    <td align="center"><a href="https://github.com/hugofsantos"><img src="https://avatars3.githubusercontent.com/u/74878213?s=400&v=4" width="100px;" alt=""/><br /><sub><b>Hugo dos Santos</b></sub></a></td>
+    <td align="center"><a href="https://github.com/johnReberty"><img src="https://avatars3.githubusercontent.com/u/68155695?s=460&u=4d3186a52764e0d41ac34e7355b71771e56abf68&v=4" width="100px;" alt=""/><br /><sub><b>Johnny Reberty</b></sub></a></td>
+    <td align="center"><a href="https://github.com/kleysonfmadruga"><img src="https://avatars2.githubusercontent.com/u/40344712?s=460&u=22908c3d03495629b06a09ce724a510d4a9dc96a&v=4" width="100px;" alt=""/><br /><sub><b>Kleyson Madruga</b></sub></a></td>
+   </tr>
+</table>
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+    
