@@ -1,6 +1,7 @@
 # Swed
 ## Sobre
 O Swed é um acrônimo para **S**istema **we**b de **d**ivulgação de estabelecimentos, que permite aos gerentes divulgarem seus estabelecimentos e aos usuários encontrar de forma facilitada os produtos e serviços da região desejada.
+Este projeto é um componente de nota para a disciplina de Programação para Internet do Curso Técnico Integrado em Informática do IFRN - _Campus_ Nova Cruz
 
 ![Badge](https://img.shields.io/github/license/kleysonfmadruga/swed)
 ![Badge](https://img.shields.io/github/last-commit/kleysonfmadruga/swed)
