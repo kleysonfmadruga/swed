@@ -17,7 +17,12 @@ syncResources('js/**/*.js', (src, dest) => mix.copy(src, dest).version());
 
 syncResources('images/**/*', (src, dest) => mix.copy(src, dest).version());
 
-mix.browserSync('127.0.0.1:8000');
+mix.browserSync('127.0.0.1:3000');
+
+mix.js('resources/js/app.js', 'public/js')
+    .postCss('resources/css/app.css', 'public/css', [
+            require('tailwindcss')
+    ]);
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -29,7 +34,4 @@ mix.browserSync('127.0.0.1:8000');
  |
  */
 //
-// mix.js('resources/js/app.js', 'public/js')
-//     .postCss('resources/css/app.css', 'public/css', [
-//         //
-//     ]);
+
