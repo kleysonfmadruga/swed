@@ -14,6 +14,7 @@ function syncResources(pattern, callback) {
 // syncResources('css/**/*.css', (src, dest) => mix.styles(src, dest).version());
 
 // syncResources('js/**/*.js', (src, dest) => mix.copy(src, dest).version());
+syncResources('fonts/**/*', (src, dest) => mix.copy(src, dest).version());
 
 syncResources('images/**/*', (src, dest) => mix.copy(src, dest).version());
 

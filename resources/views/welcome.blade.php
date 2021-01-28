@@ -14,7 +14,7 @@
                     @csrf
                     <input type="text" name="category" id="category" class="h-full w-full px-4 outline-none rounded-l-full" placeholder="Que tipo de estabelecimento você está procurando hoje?" />
                     <div class="h-full w-12 cursor-pointer bg-red-600 hover:bg-red-500 rounded-r-full">
-
+                        <i class="feather icon-search"></i>
                     </div>
                 </form>
                 <div class="flex flex-row mt-4 justify-between w-2/5 h-12">

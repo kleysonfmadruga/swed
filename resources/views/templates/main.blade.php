@@ -5,7 +5,8 @@
 
     <title>@yield('pagename')</title>
 
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('fonts/feather/iconfont.css')) }}" />
 </head>
 <body class="w-full">
     <header class="w-full h-14 bg-red-600 px-24 flex justify-between items-center">
