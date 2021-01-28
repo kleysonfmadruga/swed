@@ -11,18 +11,21 @@ function syncResources(pattern, callback) {
 }
 
 
-syncResources('css/**/*.css', (src, dest) => mix.styles(src, dest).version());
+// syncResources('css/**/*.css', (src, dest) => mix.styles(src, dest).version());
 
-syncResources('js/**/*.js', (src, dest) => mix.copy(src, dest).version());
+// syncResources('js/**/*.js', (src, dest) => mix.copy(src, dest).version());
 
 syncResources('images/**/*', (src, dest) => mix.copy(src, dest).version());
 
-mix.browserSync('127.0.0.1:3000');
+require('laravel-mix-tailwind');
 
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
             require('tailwindcss')
     ]);
+
+mix.browserSync('127.0.0.1:8000');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
