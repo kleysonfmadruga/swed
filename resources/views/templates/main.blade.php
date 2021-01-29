@@ -10,7 +10,7 @@
     <style>
         .animate-scale {
             transition: .3s;
-        }     
+        }
         .animate-scale:hover {
             transform: scale(1.05);
         }
@@ -31,9 +31,7 @@
 
     @yield('main')
 
-    {{-- <footer class="w-full h-40 bg-gray-900 px-24">
-
-    </footer> --}}
+    @yield('footer')
 
     @yield('script')
 </body>
