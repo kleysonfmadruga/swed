@@ -25,7 +25,15 @@
             <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="#">Cidades Mapeadas</a>
             <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="#">Quem somos</a>
             <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="#">Sobre</a>
-            <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500" href="#">Login</a>
+            <div id="profile-dropdown" class="h-full w-24 inline-block relative justify-end group">
+                <button onclick="toggleDropdownVisibilityHandler()" id="profile-dropdown-button"
+                    class="h-full w-full font-semibold text-white focus:outline-none group-hover:bg-red-500" href="#">Login</button>
+
+                <div id="profile-dropdown-content" class="absolute -inset-x-32 z-10 bg-white shadow-sm w-56 flex-col hidden">
+                    <a href="#" class="py-2 px-4 w-full hover:bg-gray-200">Fazer login como Gerente</a>
+                    <a href="#" class="py-2 px-4 w-full hover:bg-gray-200">Fazer login como Cliente</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -34,5 +42,20 @@
     @yield('footer')
 
     @yield('script')
+    <script>
+        window.onclick = (event) => {
+            let dropMenu = document.querySelector('#profile-dropdown-content')
+            if(!event.target.matches('#profile-dropdown-button') && !dropMenu.classList.contains('hidden')) {
+                dropMenu.classList.toggle('hidden')
+                dropMenu.classList.toggle('flex')
+            }
+        }
+
+        function toggleDropdownVisibilityHandler(){
+            let dropMenu = document.querySelector('#profile-dropdown-content')
+            dropMenu.classList.toggle('hidden');
+            dropMenu.classList.toggle('flex');
+        }
+    </script>
 </body>
 </html>
