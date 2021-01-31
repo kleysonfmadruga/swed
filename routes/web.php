@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login-manager', function () {
+    return view('login_manager');
+});
+
 Route::group(['prefix' => '/'], function () {
     Route::get('home', [DashboardController::class, 'index'])->name('home.index');
 });
