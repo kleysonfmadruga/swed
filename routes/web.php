@@ -15,13 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['prefix' => '/'], function () {
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/login-manager', function () {
-    return view('login_manager');
-});
+    /* ----------------------------- Dashboard group ---------------------------- */
+    Route::get('', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::post('resultado', [DashboardController::class, 'resultado'])->name('dashboard.resultado');
 
 Route::group(['prefix' => '/'], function () {
     Route::get('home', [DashboardController::class, 'index'])->name('home.index');
