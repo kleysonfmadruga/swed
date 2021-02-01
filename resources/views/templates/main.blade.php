@@ -6,15 +6,8 @@
     <title>@yield('pagename')</title>
 
     <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/global/index.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('fonts/feather/iconfont.css')) }}" />
-    <style>
-        .animate-scale {
-            transition: .3s;
-        }
-        .animate-scale:hover {
-            transform: scale(1.05);
-        }
-    </style>
 </head>
 <body class="w-full m-0 p-0">
     <header class="w-full h-14 bg-grey-500 px-24 flex justify-between items-center absolute top-0">
