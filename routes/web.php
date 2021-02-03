@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['prefix' => '/'], function () {
-    Route::get('home', [DashboardController::class, 'index'])->name('home.index');
+
+    /* ----------------------------- Dashboard group ---------------------------- */
+    Route::get('', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::post('resultado', [DashboardController::class, 'resultado'])->name('dashboard.resultado');
+
+    /* ------------------------------- Login Group ------------------------------ */
+    Route::group(['prefix' => 'login'], function () {
+        Route::get('/cliente', [DashboardController::class, 'loginCliente'])->name('login.cliente');
+        Route::get('/gerente', [DashboardController::class, 'loginGerente'])->name('login.gerente');
+    });
 });
