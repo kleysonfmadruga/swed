@@ -1,4 +1,4 @@
-@extends('templates.main')
+@extends('templates.external')
 
 @section('pagename')
     Fazer login como Gerente
