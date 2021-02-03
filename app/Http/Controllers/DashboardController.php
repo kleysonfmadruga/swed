@@ -7,17 +7,26 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function index() {
-        return view('pages.dashboard');        
+        return view('pages.dashboard');
     }
 
     public function loginCliente() {
-        $title = "Cliente";
+        $title = "cliente";
         return view('pages.login.index', compact('title'));
     }
 
     public function loginGerente() {
-        $title = "Gerente";
+        $title = "gerente";
         return view('pages.login.index', compact('title'));
     }
 
+    public function signupCliente() {
+        $title = "cliente";
+        return view('pages.signup.index', compact('title'));
+    }
+
+    public function signupGerente() {
+        $title = "gerente";
+        return view('pages.signup.index', compact('title'));
+    }
 }

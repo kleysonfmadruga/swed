@@ -24,4 +24,10 @@ Route::group(['prefix' => '/'], function () {
         Route::get('/cliente', [DashboardController::class, 'loginCliente'])->name('login.cliente');
         Route::get('/gerente', [DashboardController::class, 'loginGerente'])->name('login.gerente');
     });
+
+    /* ------------------------------ Signup group ------------------------------ */
+    Route::group(['prefix' => 'signup'], function () {
+        Route::get('/cliente', [DashboardController::class, 'signupCliente'])->name('signup.cliente');
+        Route::get('/gerente', [DashboardController::class, 'signupGerente'])->name('signup.gerente');
+    });
 });
