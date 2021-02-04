@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,8 +28,14 @@ Route::group(['prefix' => '/'], function () {
 
     /* ------------------------------ Signup group ------------------------------ */
     Route::group(['prefix' => 'signup'], function () {
-        Route::get('/cliente', [DashboardController::class, 'signupCliente'])->name('signup.cliente');
-        Route::get('/gerente', [DashboardController::class, 'signupGerente'])->name('signup.gerente');
+        Route::group(['prefix' => '/cliente'], function () {
+            Route::get('/', [DashboardController::class, 'signupCliente'])->name('signup.cliente');
+            Route::post('/cadastrar', [UserController::class, 'newCliente'])->name('signup.newCliente');
+        });
+        Route::group(['prefix' => 'gerente'], function () {
+            Route::get('/', [DashboardController::class, 'signupGerente'])->name('signup.gerente');
+            Route::post('/cadastrar', [UserController::class, 'newGerente'])->name('signup.newGerente');
+        });
     });
 });
 
