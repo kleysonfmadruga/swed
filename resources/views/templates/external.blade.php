@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('css/global/index.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('fonts/feather/iconfont.css')) }}" />
+
+    @yield('Local CSS')
 </head>
 <body class="w-full m-0 p-0">
     <header class="w-full h-14 bg-grey-500 px-24 flex justify-between items-center absolute top-0">
@@ -34,6 +36,8 @@
 
     @yield('footer')
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ asset('libraries/app.js') }}"></script>
     @yield('script')
 
 </body>
