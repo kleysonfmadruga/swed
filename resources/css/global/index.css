@@ -31,3 +31,29 @@ body::-webkit-scrollbar-thumb:hover {
 .animate-scale:hover {
     transform: scale(1.05);
 }
+
+.fade-in{
+    transform-origin: top;
+    transition: 0.3s linear;
+    animation: fade-in .4s forwards;
+}
+@keyframes fade-in{
+    0%   {transform: scale(.3);}
+    10% {transform: scale(.4);}
+    15% {transform: scale(.6);}
+    20% {transform: scale(.6);}
+    25% {transform: scale(.7);}
+    30% {transform: scale(.8);}
+    35% {transform: scale(.9);}
+    40% {transform: scale(1);}
+
+    
+    /* from {
+    transform: rotateX(-90deg);
+    }
+    to {
+    height: auto;
+    transform: rotateX(0deg);
+    display: block; */
+    /* } */
+}
