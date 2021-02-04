@@ -31,3 +31,8 @@ Route::group(['prefix' => '/'], function () {
         Route::get('/gerente', [DashboardController::class, 'signupGerente'])->name('signup.gerente');
     });
 });
+
+/* Route::get('/teste', function(){
+    return view('templates.main');
+});
+ */
