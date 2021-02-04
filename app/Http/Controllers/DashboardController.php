@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Methods\Filters;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index() {
-        return view('pages.dashboard');
+        $cities = Filters::makeArrayCityByState();
+        return view('pages.dashboard', compact('cities'));
     }
 
     public function loginCliente() {
