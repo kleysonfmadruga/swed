@@ -6,38 +6,53 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = 'users';
+
     protected $fillable = [
         'name',
         'email',
         'password',
+        'cpf',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function saveUser($request) {
+
+        try {
+
+            if($request->password != $request->password_confirm) {
+                throw new \Error('As senhas não são compatíveis');
+            }
+
+            DB::beginTransaction();
+
+            $this->name = $request->name;
+            $this->email = $request->email;
+            $this->password = Hash::make($request->password);
+            $this->save();
+
+            DB::commit();
+
+            return $this->id;
+
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return $th->getMessage();
+        }
+    }
 }
