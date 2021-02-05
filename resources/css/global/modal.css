@@ -14,6 +14,9 @@
     position: relative;
     top: 10%;
 }
+.modal .select2 {
+    z-index: 100002;
+}
 .modal .modal-header {
     display: flex;
     justify-content: space-between;

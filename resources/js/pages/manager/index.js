@@ -1,9 +1,8 @@
-import { reseteModal } from './src/index.js';
+import { reseteModal, activeNewCOntainer } from './src/index.js';
 
 let functions = {
     reseteModal
 };
-
 
 document.querySelectorAll('[show-modal]').forEach(element => {
     element.addEventListener('click', function() {
@@ -16,4 +15,12 @@ document.querySelectorAll('[show-modal]').forEach(element => {
             functions[element.getAttribute('function')]();
         }
     });
+});
+
+document.querySelectorAll('[new-content]').forEach(element => {
+    if(element) {
+        $(element).on('change', function() {
+            activeNewCOntainer(element)
+        });
+    }
 });
