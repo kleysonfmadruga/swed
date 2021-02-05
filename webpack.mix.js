@@ -13,8 +13,10 @@ function syncResources(pattern, callback) {
 
 syncResources('css/global/**/*.css', (src, dest) => mix.styles(src, dest).version());
 syncResources('css/pages/**/*.css', (src, dest) => mix.styles(src, dest).version());
+syncResources('css/pages/manager/**/*.css', (src, dest) => mix.styles(src, dest).version());
 
 syncResources('js/pages/**/*.js', (src, dest) => mix.copy(src, dest).version());
+syncResources('js/etc/*.js', (src, dest) => mix.copy(src, dest).version());
 syncResources('fonts/**/*', (src, dest) => mix.copy(src, dest).version());
 
 syncResources('images/**/*', (src, dest) => mix.copy(src, dest).version());

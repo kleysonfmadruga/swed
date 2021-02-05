@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Establishment\EstablishmentController;
+use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,9 +40,16 @@ Route::group(['prefix' => '/'], function () {
             Route::post('/cadastrar', [UserController::class, 'newGerente'])->name('signup.newGerente');
         });
     });
+
+    Route::group(['prefix' => 'estabelecimento'], function () {
+        Route::get('/', [EstablishmentController::class, 'index'])->name('establishment.index');
+        Route::post('/salvar', [EstablishmentController::class, 'merge'])->name('establishment.merge');
+        Route::get('/{id}', [EstablishmentController::class, 'show'])->name('establishment.show');
+        Route::post('/novo-servico', [ServiceController::class, 'merge'])->name('service.merge');
+        Route::post('/novo-produto', [ProductController::class, 'merge'])->name('product.merge');
+    });
 });
 
-/* Route::get('/teste', function(){
-    return view('templates.main');
-});
- */
+// Route::get('/teste', function(){
+//     return view('pages.manager.index');
+// });

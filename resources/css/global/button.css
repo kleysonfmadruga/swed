@@ -1,0 +1,19 @@
+.btn{
+    margin: .2rem .5rem;
+    padding: .4rem .7rem;
+    border-radius: .4rem;
+    outline: none !important;
+    position: relative;
+}
+.btn.btn-primary {
+    background-color: rgba(0, 123, 255, 1);
+    color: white;
+}
+.btn.btn-flat-danger {
+    color: rgba(243, 44, 44, 1);
+    transition: .3s;
+    border: 1px solid #fff;
+}
+.btn.btn-flat-danger:hover {
+    border: 1px solid rgba(243, 44, 44, 1);
+}

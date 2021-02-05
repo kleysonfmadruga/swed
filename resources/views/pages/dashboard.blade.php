@@ -45,4 +45,15 @@
     <script type="module" src="{{ asset(mix('js/pages/dashboard/index.js')) }}"></script>
     <script src="{{ asset('libraries/select2/dist/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('libraries/select2/dist/js/select2.js') }}"></script>
+    <script>
+        window.onload = function () {
+            if($('.select2').length > 0) {
+                $('.select2').select2({
+                    dropdownAutoWidth: true,
+                    width: '100%',
+                    // disabled: false,
+                })
+            }
+        };
+    </script>
 @endsection

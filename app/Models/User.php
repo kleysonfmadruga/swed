@@ -38,6 +38,10 @@ class User extends Authenticatable
             if($request->password != $request->password_confirm) {
                 throw new \Error('As senhas não são compatíveis');
             }
+            $is_exist_email = $this->where('email', $request->email)->get()->first();
+            if ($is_exist_email != null) {
+                throw new \Error('O email: '.$request->email.' já está cadastrado!');
+            }
 
             DB::beginTransaction();
 
