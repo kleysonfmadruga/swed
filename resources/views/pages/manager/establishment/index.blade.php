@@ -11,18 +11,71 @@
     <link rel="stylesheet" href="{{ asset('libraries/select2/dist/css/select2.css') }}">
     <link rel="stylesheet" href="{{ asset('libraries/toastr/css/toastr.css') }}">
     <link rel="stylesheet" href="{{ asset('libraries/toastr/css/plugin/toastr.css') }}">
+    <style>
+        .select2-container{
+            z-index: 100003 !important;
+        }
+    </style>
 @endsection
 
 @section('main')
 @if ($errors->first())
     <input type="hidden" id="error" value="{{$errors->first()}}">
 @endif
-<x-Modal classAbrirModal="new-service" titleModal="Cadastro de Serviço" routeFormAction="{{ route('establishment.merge') }}">
-               
+<x-Modal classAbrirModal="new-service" titleModal="Cadastro de Serviço" routeFormAction="{{ route('service.merge') }}">
+    <input type="hidden" name="establishment_id" value="{{ $establishment->id }}">
+    <fieldset class="flex flex-col w-36">
+        <label for="">Serviços</label>
+        <select new-content="new-service" name="service" id="service" class="select2" required>
+            <option disabled selected>Selecione um Serviço</option>
+            @foreach ($services as $item)
+                <option value="{{ $item->id }}">{{ $item->service_name }}</option>
+            @endforeach
+            <option value="new">Cadastrar um novo</option>
+        </select>
+    </fieldset>
+    <div id="new-service" class="hidden">
+        <fieldset class="flex flex-col w-36">
+            <label for="">Informe o nome do serviço</label>
+            <input type="text" disabled placeholder="Digite o nome do novo serviço" name="new_service">
+        </fieldset>
+    </div>
+    <fieldset class="flex flex-col w-36">
+        <label for="">Informe o preço do serviço</label>
+        <input type="number" placeholder="Digite o preço do serviço" name="price">
+    </fieldset>
+    <fieldset class="flex flex-col w-36">
+        <label for="">Descrição do estabelecimento</label>
+        <textarea type="text" placeholder="Informe a descrição do estabelecimento" name="description"></textarea>
+    </fieldset>
 </x-Modal>
 
-<x-Modal classAbrirModal="new-product" titleModal="Cadastro de Produto" routeFormAction="{{ route('establishment.merge') }}">
-               
+<x-Modal classAbrirModal="new-product" titleModal="Cadastro de Produto" routeFormAction="{{ route('product.merge') }}">
+    <input type="hidden" name="establishment_id" value="{{ $establishment->id }}">
+    <fieldset class="flex flex-col w-36">
+        <label for="">Produtos</label>
+        <select new-content="new-product" name="product" id="product" class="select2" required>
+            <option disabled selected>Selecione um Produto</option>
+            @foreach ($products as $item)
+                <option value="{{ $item->id }}">{{ $item->product_name }}</option>
+            @endforeach
+            <option value="new">Cadastrar um novo</option>
+        </select>
+    </fieldset>
+    <div id="new-product" class="hidden">
+        <fieldset class="flex flex-col w-36">
+            <label for="">Informe o nome do produto</label>
+            <input type="text" disabled placeholder="Digite o nome do novo produto" name="new_product">
+        </fieldset>
+    </div>
+    <fieldset class="flex flex-col w-36">
+        <label for="">Informe o preço do produto</label>
+        <input type="number" placeholder="Digite o preço do produto" name="price">
+    </fieldset>
+    <fieldset class="flex flex-col w-36">
+        <label for="">Descrição do estabelecimento</label>
+        <textarea type="text" placeholder="Informe a descrição do estabelecimento" name="description"></textarea>
+    </fieldset>
 </x-Modal>
 
     <main class="w-full flex justify-center items-start bg-gray-200">
@@ -102,7 +155,6 @@
 @endsection
 
 @section('script')
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready( function () {

@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="{{ asset('libraries/select2/dist/css/select2.css') }}">
     <link rel="stylesheet" href="{{ asset('libraries/toastr/css/toastr.css') }}">
     <link rel="stylesheet" href="{{ asset('libraries/toastr/css/plugin/toastr.css') }}">
+    <style>
+        .select2-container{
+            z-index: 100003 !important;
+        }
+    </style>
 @endsection
 
 @section('main')
@@ -36,6 +41,7 @@
         </a>
     </div>
 </main>
+
 <x-Modal classAbrirModal="new-establishment" titleModal="Cadastro de Estabelecimento" routeFormAction="{{ route('establishment.merge') }}">
     <div class="flex">
         <fieldset class="flex flex-col w-36 mr-10">
@@ -43,7 +49,7 @@
             <input type="text" placeholder="Informe o nome do estabelecimento" name="name">
         </fieldset>
         <fieldset class="flex flex-col w-36">
-            <label for="">Nome do estabelecimento</label>
+            <label for="">Descrição do estabelecimento</label>
             <textarea type="text" placeholder="Informe a descrição do estabelecimento" name="description"></textarea>
         </fieldset>
         
