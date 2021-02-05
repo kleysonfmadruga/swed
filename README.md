@@ -46,8 +46,15 @@ $ cp .env.example .env
 # Gere uma nova chave para a aplicação
 $ php artisan key:generate
 
-# Execute as migrações para criar as tabelas no banco de dados
-$ php artisan migrate
+# Caso as tabelas NÃO EXISTAM na sua máquina, execute
+# o comando abaixo para criar as tabelas no banco de dados
+# e popular as tabelas com registros
+$ php artisan migrate --seed
+
+# Caso as tabelas JÁ EXISTAM na sua máquina, execute
+# o comando abaixo para recriar as tabelas no banco de dados
+# e popular as tabelas com registros
+$ php artisan migrate:fresh --seed
 
 # Crie um link simbólico da pasta storages para a pasta public para torná-la pública
 $ php artisan storage:link
