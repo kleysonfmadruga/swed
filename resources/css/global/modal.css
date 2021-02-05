@@ -1,0 +1,56 @@
+.modal-box {
+    position: fixed;
+    background-color: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 50rem;
+    top: 0;
+    z-index: 100000;
+}
+.modal {
+    border-radius: .4rem;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, .6);
+    z-index: 100001;
+    background-color: #fff;
+    position: relative;
+    top: 10%;
+}
+.modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+.modal .modal-header h4{
+    font-size: 1.2rem;
+    margin: .5rem 0;
+}
+.modal .modal-header button {
+    position: absolute;
+    right: .2rem;
+    top: .2rem; 
+    padding: 0 .5rem;
+    transition: .3s;
+    outline: none !important;
+}
+.modal .modal-header button:hover {
+    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, .3);
+}
+.modal .modal-header button span{
+    font-size: 1.5rem !important;
+    font-weight: bold;
+    color: rgba(248, 76, 76, 1);
+}
+.modal .modal-body {
+    padding: 1rem;
+}
+.modal .modal-footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid rgba(0, 0, 0, .2);
+    height: 3rem;
+}
+.modal-md {
+    width: 65%;
+    margin: 0 auto !important;
+}
