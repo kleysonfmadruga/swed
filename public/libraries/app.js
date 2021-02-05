@@ -1,5 +1,5 @@
 
-window.onload = function () {
+// window.onload = function () {
     if($('.select2').length > 0) {
         $('.select2').select2({
             dropdownAutoWidth: true,
@@ -7,4 +7,4 @@ window.onload = function () {
             // disabled: false,
         })
     }
-};
+// };
