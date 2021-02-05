@@ -1,4 +1,4 @@
-<a class="h-52 w-full bg-gray-100 hover:bg-gray-200 border-gray-300 mt-5
+<a href="{{ $route ?? '#' }}" class="h-52 w-full bg-gray-100 hover:bg-gray-200 border-gray-300 mt-5
         duration-200 rounded border hover:shadow cursor-pointer flex
         justify-evenly items-center"
 >
