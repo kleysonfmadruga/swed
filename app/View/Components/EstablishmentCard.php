@@ -8,7 +8,7 @@ class EstablishmentCard extends Component
 {
     public $name;
     public $description;
-    //public $stars;
+    public $route;
     public $image;
 
     /**
@@ -16,11 +16,12 @@ class EstablishmentCard extends Component
      *
      * @return void
      */
-    public function __construct($name = null, $description = null, $image = null)
+    public function __construct($name = null, $description = null, $image = null, $route = null)
     {
         $this->name = $name;
         $this->description = $description;
         $this->image = $image;
+        $this->route = $route;
     }
 
     /**
@@ -30,6 +31,6 @@ class EstablishmentCard extends Component
      */
     public function render()
     {
-        return view('components.establishment-card');
+        return view('components.cards.establishment-card');
     }
 }
