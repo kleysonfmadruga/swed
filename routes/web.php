@@ -40,6 +40,6 @@ Route::group(['prefix' => '/'], function () {
 });
 
 /* Route::get('/teste', function(){
-    return view('templates.main');
+    return view('pages.manager.index');
 });
  */
