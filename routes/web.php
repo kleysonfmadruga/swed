@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Establishment\EstablishmentController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,9 +38,14 @@ Route::group(['prefix' => '/'], function () {
             Route::post('/cadastrar', [UserController::class, 'newGerente'])->name('signup.newGerente');
         });
     });
+
+    Route::group(['prefix' => 'estabelecimento'], function () {
+        Route::get('/', [EstablishmentController::class, 'index'])->name('establishment.index');
+        Route::post('/salvar', [EstablishmentController::class, 'merge'])->name('establishment.merge');
+        Route::get('/{id}', [EstablishmentController::class, 'show'])->name('establishment.show');
+    });
 });
 
-/* Route::get('/teste', function(){
-    return view('pages.manager.index');
-});
- */
+// Route::get('/teste', function(){
+//     return view('pages.manager.index');
+// });
