@@ -17,6 +17,7 @@ class CreateEstablishmentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('cnpj')->unique();
             $table->string('name');
+            $table->text('description')->nullable();
             $table->string('opening_hours');
 
             $table->timestampsTz();
