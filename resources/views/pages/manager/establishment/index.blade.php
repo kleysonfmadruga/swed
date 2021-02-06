@@ -29,7 +29,7 @@
         <select new-content="new-service" name="service" id="service" class="select2" required>
             <option disabled selected>Selecione um Serviço</option>
             @foreach ($services as $item)
-                <option value="{{ $item->id }}">{{ $item->service_name }}</option>
+                <option value="{{ $item->id }}">{{ $item->name }}</option>
             @endforeach
             <option value="new">Cadastrar um novo</option>
         </select>
@@ -57,7 +57,7 @@
         <select new-content="new-product" name="product" id="product" class="select2" required>
             <option disabled selected>Selecione um Produto</option>
             @foreach ($products as $item)
-                <option value="{{ $item->id }}">{{ $item->product_name }}</option>
+                <option value="{{ $item->id }}">{{ $item->name }}</option>
             @endforeach
             <option value="new">Cadastrar um novo</option>
         </select>
