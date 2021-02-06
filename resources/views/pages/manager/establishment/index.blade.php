@@ -77,6 +77,34 @@
         <textarea type="text" placeholder="Informe a descrição do estabelecimento" name="description"></textarea>
     </fieldset>
 </x-Modal>
+<x-ModalShow classAbrirModal="show-service" titleModal="Meu serviço">
+    <div class="flex flex-col w-72">
+        <h3 class="text-md font-bold">Nome do serviço</h3>
+        <p>Nome de teste</p>
+    </div>
+    <div class="flex flex-col w-72 mt-4">
+        <h3 class="text-md font-bold">Preço do serviço</h3>
+        <p>R$ 2323,20</p>
+    </div>
+    <div class="flex flex-col w-72 mt-4">
+        <h3 class="text-md font-bold">Descrição do serviço</h3>
+        <p>É um serviço bem testado</p>
+    </div>
+</x-ModalShow>
+<x-ModalShow classAbrirModal="show-product" titleModal="Meu produto">
+    <div class="flex flex-col w-72">
+        <h3 class="text-md font-bold">Nome do produto</h3>
+        <p>Produto de teste</p>
+    </div>
+    <div class="flex flex-col w-72 mt-4">
+        <h3 class="text-md font-bold">Preço do produto</h3>
+        <p>R$ 23,20</p>
+    </div>
+    <div class="flex flex-col w-72 mt-4">
+        <h3 class="text-md font-bold">Descrição do produto</h3>
+        <p>É um produto bem comprado</p>
+    </div>
+</x-ModalShow>
 
     <main class="w-full flex justify-center items-start bg-gray-200">
         <div class="min-h-screen w-3/4 bg-white pt-14 px-12 flex flex-col justify-start items-start">
