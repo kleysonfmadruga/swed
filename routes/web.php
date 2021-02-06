@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Establishment\EstablishmentController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Service\ServiceController;
+use App\Services\Methods\Filters;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,9 +48,7 @@ Route::group(['prefix' => '/'], function () {
         Route::get('/{id}', [EstablishmentController::class, 'show'])->name('establishment.show');
         Route::post('/novo-servico', [ServiceController::class, 'merge'])->name('service.merge');
         Route::post('/novo-produto', [ProductController::class, 'merge'])->name('product.merge');
+        Route::get('/apagar-servico/{establishment_service_id}/{establishment_id}', [ServiceController::class, 'delete'])->name('service.delete');
+        Route::get('/apagar-produto/{establishment_product_id}/{establishment_id}', [ProductController::class, 'delete'])->name('product.delete');
     });
 });
-
-// Route::get('/teste', function(){
-//     return view('pages.manager.index');
-// });
