@@ -57,4 +57,26 @@ class Filters extends Model
 
         return $response;
     }
+
+    static public function makeArrayProducts() {
+        $response = [];
+        $products = DB::table('products')->get();
+
+        foreach($products as $key => $item){
+            $response[$key] = $item;
+        }
+
+        return $response;
+    }
+
+    static public function makeArrayServices() {
+        $response = [];
+        $services = DB::table('services')->get();
+
+        foreach($services as $key => $item){
+            $response[$key] = $item;
+        }
+
+        return $response;
+    }
 }
