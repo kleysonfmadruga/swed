@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
             StatesSeeder::class,
             CitiesSeeder::class,
             DefaultRolesSeeder::class,
+            ProductsSeeder::class,
+            ServicesSeeder::class
+            
         ]);
     }
 }
