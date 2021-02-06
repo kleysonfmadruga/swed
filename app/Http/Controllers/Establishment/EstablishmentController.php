@@ -41,9 +41,11 @@ class EstablishmentController extends Controller
 
     public function show($id) {
         $establishment = Establishment::find($id);
-        $services = Filters::makeArrayServices($id);
-        $products = Filters::makeArrayProducts($id);
+        $establishment_services = Filters::makeArrayEstablishmentServices($id);
+        $establishment_products = Filters::makeArrayEstablishmentProducts($id);
+        $services = Filters::makeArrayServices();
+        $products = Filters::makeArrayProducts();
 
-        return view('pages.manager.establishment.index', compact('establishment', 'services', 'products'));
+        return view('pages.manager.establishment.index', compact('establishment', 'establishment_services', 'establishment_products', 'services', 'products'));
     }
 }

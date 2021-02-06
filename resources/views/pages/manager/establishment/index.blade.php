@@ -29,7 +29,7 @@
         <select new-content="new-service" name="service" id="service" class="select2" required>
             <option disabled selected>Selecione um Serviço</option>
             @foreach ($services as $item)
-                <option value="{{ $item->id }}">{{ $item->service_name }}</option>
+                <option value="{{ $item->id }}">{{ $item->name }}</option>
             @endforeach
             <option value="new">Cadastrar um novo</option>
         </select>
@@ -45,7 +45,7 @@
         <input type="number" placeholder="Digite o preço do serviço" name="price">
     </fieldset>
     <fieldset class="flex flex-col w-36">
-        <label for="">Descrição do estabelecimento</label>
+        <label for="">Descrição do serviço</label>
         <textarea type="text" placeholder="Informe a descrição do estabelecimento" name="description"></textarea>
     </fieldset>
 </x-Modal>
@@ -57,7 +57,7 @@
         <select new-content="new-product" name="product" id="product" class="select2" required>
             <option disabled selected>Selecione um Produto</option>
             @foreach ($products as $item)
-                <option value="{{ $item->id }}">{{ $item->product_name }}</option>
+                <option value="{{ $item->id }}">{{ $item->name }}</option>
             @endforeach
             <option value="new">Cadastrar um novo</option>
         </select>
@@ -73,10 +73,38 @@
         <input type="number" placeholder="Digite o preço do produto" name="price">
     </fieldset>
     <fieldset class="flex flex-col w-36">
-        <label for="">Descrição do estabelecimento</label>
+        <label for="">Descrição do produto</label>
         <textarea type="text" placeholder="Informe a descrição do estabelecimento" name="description"></textarea>
     </fieldset>
 </x-Modal>
+<x-ModalShow classAbrirModal="show-service" titleModal="Meu serviço">
+    <div class="flex flex-col w-72">
+        <h3 class="text-md font-bold">Nome do serviço</h3>
+        <p>Nome de teste</p>
+    </div>
+    <div class="flex flex-col w-72 mt-4">
+        <h3 class="text-md font-bold">Preço do serviço</h3>
+        <p>R$ 2323,20</p>
+    </div>
+    <div class="flex flex-col w-72 mt-4">
+        <h3 class="text-md font-bold">Descrição do serviço</h3>
+        <p>É um serviço bem testado</p>
+    </div>
+</x-ModalShow>
+<x-ModalShow classAbrirModal="show-product" titleModal="Meu produto">
+    <div class="flex flex-col w-72">
+        <h3 class="text-md font-bold">Nome do produto</h3>
+        <p>Produto de teste</p>
+    </div>
+    <div class="flex flex-col w-72 mt-4">
+        <h3 class="text-md font-bold">Preço do produto</h3>
+        <p>R$ 23,20</p>
+    </div>
+    <div class="flex flex-col w-72 mt-4">
+        <h3 class="text-md font-bold">Descrição do produto</h3>
+        <p>É um produto bem comprado</p>
+    </div>
+</x-ModalShow>
 
     <main class="w-full flex justify-center items-start bg-gray-200">
         <div class="min-h-screen w-3/4 bg-white pt-14 px-12 flex flex-col justify-start items-start">
@@ -102,14 +130,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($services as $item)
+                        @foreach ($establishment_services as $item)
                             <tr>
                                 <td>{{ $item->service_name }}</td>
                                 <td>{{ $item->price }}</td>
                                 <td class="flex flex-row justify-evenly ">
-                                    <a class="py-2 px-6 text-white bg-blue-600 hover:bg-blue-500 rounded cursor-pointer">Visualizar</a>
-                                    <a class="py-2 px-6 text-white bg-yellow-600 hover:bg-yellow-500 rounded cursor-pointer">Editar</a>
-                                    <a class="py-2 px-6 text-white bg-red-600 hover:bg-red-500 rounded cursor-pointer">Remover</a>
+                                    <a show-modal="modal-show-service" class="py-2 px-6 text-white bg-blue-600 hover:bg-blue-500 rounded cursor-pointer">Visualizar</a>
+                                    <a href="#" class="py-2 px-6 text-white bg-yellow-600 hover:bg-yellow-500 rounded cursor-pointer">Editar</a>
+                                    <a href="{{ route('service.delete', ['establishment_service_id' => $item->id,  'establishment_id' => $establishment->id]) }}" class="py-2 px-6 text-white bg-red-600 hover:bg-red-500 rounded cursor-pointer">Remover</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -129,13 +157,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($products as $item)
+                        @foreach ($establishment_products as $item)
                             <td>{{ $item->product_name }}</td>
                             <td>{{ $item->price }}</td>
                             <td class="flex flex-row justify-evenly ">
-                                <a class="py-2 px-6 text-white bg-blue-600 hover:bg-blue-500 rounded cursor-pointer">Visualizar</a>
+                                <a show-modal="modal-show-product" class="py-2 px-6 text-white bg-blue-600 hover:bg-blue-500 rounded cursor-pointer">Visualizar</a>
                                 <a class="py-2 px-6 text-white bg-yellow-600 hover:bg-yellow-500 rounded cursor-pointer">Editar</a>
-                                <a class="py-2 px-6 text-white bg-red-600 hover:bg-red-500 rounded cursor-pointer">Remover</a>
+                                <a href="{{ route('product.delete', ['establishment_product_id' => $item->id, 'establishment_id' => $establishment->id]) }}" class="py-2 px-6 text-white bg-red-600 hover:bg-red-500 rounded cursor-pointer">Remover</a>
                             </td>
                         @endforeach
                     </tbody>

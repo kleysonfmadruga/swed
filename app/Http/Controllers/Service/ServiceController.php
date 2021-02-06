@@ -30,4 +30,18 @@ class ServiceController extends Controller
             return redirect()->back()->withErrors(['msg' => $th->getMessage()])->compact('establishment');
         }
     }
+
+    public function delete(Request $request){
+        try {
+            $response = $this->service->deleteService($request);
+            if ($response == true){
+                return redirect()->route('establishment.show', ['id' => $request->establishment_id]);
+            } else {
+                throw new \Error($response);
+            }
+        } catch (\Throwable $th) {
+            $establishment = Establishment::find($request->establishment_id);
+            return redirect()->back()->withErrors(['msg' => $th->getMessage()])->compact('establishment');
+        }
+    }
 }
