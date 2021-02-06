@@ -45,7 +45,7 @@
         <input type="number" placeholder="Digite o preço do serviço" name="price">
     </fieldset>
     <fieldset class="flex flex-col w-36">
-        <label for="">Descrição do estabelecimento</label>
+        <label for="">Descrição do serviço</label>
         <textarea type="text" placeholder="Informe a descrição do estabelecimento" name="description"></textarea>
     </fieldset>
 </x-Modal>
@@ -73,7 +73,7 @@
         <input type="number" placeholder="Digite o preço do produto" name="price">
     </fieldset>
     <fieldset class="flex flex-col w-36">
-        <label for="">Descrição do estabelecimento</label>
+        <label for="">Descrição do produto</label>
         <textarea type="text" placeholder="Informe a descrição do estabelecimento" name="description"></textarea>
     </fieldset>
 </x-Modal>
