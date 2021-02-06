@@ -37,15 +37,31 @@ class Service extends Model
                 'service_id' => $id,
                 'establishment_id' => $request->establishment_id,
             ]);
-            
+
             DB::commit();
 
             return true;
-            
+
         } catch (\Throwable $th) {
             DB::rollback();
             return $th->getMessage();
         }
-        
+
+    }
+
+    public function deleteService($request){
+        try {
+            DB::beginTransaction();
+            DB::table('service_id_establishment_id')
+                ->where('id', $request->establishment_service_id)
+                ->delete();
+
+            DB::commit();
+
+            return true;
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return $th->getMessage();
+        }
     }
 }
