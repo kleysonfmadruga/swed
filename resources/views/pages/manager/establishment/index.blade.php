@@ -135,9 +135,9 @@
                                 <td>{{ $item->service_name }}</td>
                                 <td>{{ $item->price }}</td>
                                 <td class="flex flex-row justify-evenly ">
-                                    <a class="py-2 px-6 text-white bg-blue-600 hover:bg-blue-500 rounded cursor-pointer">Visualizar</a>
-                                    <a class="py-2 px-6 text-white bg-yellow-600 hover:bg-yellow-500 rounded cursor-pointer">Editar</a>
-                                    <a class="py-2 px-6 text-white bg-red-600 hover:bg-red-500 rounded cursor-pointer">Remover</a>
+                                    <a show-modal="modal-show-service" class="py-2 px-6 text-white bg-blue-600 hover:bg-blue-500 rounded cursor-pointer">Visualizar</a>
+                                    <a href="#" class="py-2 px-6 text-white bg-yellow-600 hover:bg-yellow-500 rounded cursor-pointer">Editar</a>
+                                    <a href="{{ route('service.delete', ['establishment_service_id' => $item->id,  'establishment_id' => $establishment->id]) }}" class="py-2 px-6 text-white bg-red-600 hover:bg-red-500 rounded cursor-pointer">Remover</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -161,9 +161,9 @@
                             <td>{{ $item->product_name }}</td>
                             <td>{{ $item->price }}</td>
                             <td class="flex flex-row justify-evenly ">
-                                <a class="py-2 px-6 text-white bg-blue-600 hover:bg-blue-500 rounded cursor-pointer">Visualizar</a>
+                                <a show-modal="modal-show-product" class="py-2 px-6 text-white bg-blue-600 hover:bg-blue-500 rounded cursor-pointer">Visualizar</a>
                                 <a class="py-2 px-6 text-white bg-yellow-600 hover:bg-yellow-500 rounded cursor-pointer">Editar</a>
-                                <a class="py-2 px-6 text-white bg-red-600 hover:bg-red-500 rounded cursor-pointer">Remover</a>
+                                <a href="{{ route('product.delete', ['establishment_product_id' => $item->id, 'establishment_id' => $establishment->id]) }}" class="py-2 px-6 text-white bg-red-600 hover:bg-red-500 rounded cursor-pointer">Remover</a>
                             </td>
                         @endforeach
                     </tbody>
