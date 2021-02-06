@@ -130,7 +130,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($services as $item)
+                        @foreach ($establishment_services as $item)
                             <tr>
                                 <td>{{ $item->service_name }}</td>
                                 <td>{{ $item->price }}</td>
@@ -157,7 +157,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($products as $item)
+                        @foreach ($establishment_products as $item)
                             <td>{{ $item->product_name }}</td>
                             <td>{{ $item->price }}</td>
                             <td class="flex flex-row justify-evenly ">
