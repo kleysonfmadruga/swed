@@ -19,10 +19,12 @@ class Service extends Model
     public function saveService($request) {
         try {
             DB::beginTransaction();
+
             $id = null;
 
             if (isset($request->service) && $request->service != 'new') {
-                $id = $this->find($request->service)->pluck('id');
+                $service = $this->find($request->service);
+                $id = $service->id;
             } else {
                 $this->name = $request->new_service;
                 $this->save();
