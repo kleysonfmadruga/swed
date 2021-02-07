@@ -29,7 +29,7 @@
                 <x-EstablishmentCard
                     route="{{ route('establishment.show', ['id' => $item->id]) }}"
                     name="{{ $item->name }}"
-                    description="{{ $item->description ?? 'Mussum Ipsum, cacilds vidis litro abertis. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis. Não sou faixa preta cumpadi, sou preto inteiris,'}}"
+                    description="{{ $item->description ?? 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}}"
                     image="{{ asset('img/triste.jpg') }}"
                 />         
             @endforeach

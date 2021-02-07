@@ -112,7 +112,7 @@
                 <img src="https://www.otvfoco.com.br/wp-content/uploads/2019/10/Mussum.jpg" alt="" class="w-3/12 rounded"/>
                 <div class="flex flex-col justify-evenly w-8/12">
                     <h2 class="text-lg font-bold">{{ $establishment->name ?? 'Mussum Ipsum' }}</h2>
-                    <p>{{ $establishment->description ?? 'Mussum ipsum cacildis vidi litro abertis Mussum ipsum cacildis vidi litro abertis Mussum ipsum cacildis vidi litro abertis Mussum ipsum cacildis vidi litro abertis Mussum ipsum cacildis vidi litro abertis Mussum ipsum cacildis vidi litro abertis Mussum ipsum cacildis vidi litro abertis' }}</p>
+                    <p>{{ $establishment->description ?? 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.' }}</p>
                 </div>
             </div>
 
