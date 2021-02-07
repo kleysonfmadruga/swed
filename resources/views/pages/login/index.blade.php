@@ -7,9 +7,10 @@
 @section('main')
     <main class="w-full h-screen bg-gradient-to-b from-red-600 to-gray-800 flex justify-center items-center">
         <div class="w-3/6 h-2/3 bg-white rounded-md flex flex-row overflow-hidden">
-            <form action="#" method="post" class="w-1/2 h-full flex flex-col justify-center items-center px-5">
+            <form action="{{ route('login.alternative') }}" method="post" class="w-1/2 h-full flex flex-col justify-center items-center px-5">
                 @csrf
                 <span class="text-xl">Fazer login como {{$title}}</span>
+                <input type="hidden" name="role" value="{{ $type }}">
                 <fieldset class="flex flex-col w-5/6 mt-12">
                     <label for="email" class="">Login</label>
                     <input type="email" name="email" id="email" class="h-8 px-2 rounded" />

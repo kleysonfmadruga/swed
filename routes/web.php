@@ -26,6 +26,7 @@ Route::group(['prefix' => '/'], function () {
 
     /* ------------------------------- Login Group ------------------------------ */
     Route::group(['prefix' => 'login'], function () {
+        Route::post('/', [DashboardController::class, 'login'])->name('login.alternative');
         Route::get('/cliente', [DashboardController::class, 'loginCliente'])->name('login.cliente');
         Route::get('/gerente', [DashboardController::class, 'loginGerente'])->name('login.gerente');
     });
@@ -52,3 +53,7 @@ Route::group(['prefix' => '/'], function () {
         Route::get('/apagar-produto/{establishment_product_id}/{establishment_id}', [ProductController::class, 'delete'])->name('product.delete');
     });
 });
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
