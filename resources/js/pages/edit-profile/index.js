@@ -1,4 +1,5 @@
 import { imageToBase64 } from "./src/index.js";
+import { hiddenDropdown, toggleDropdownVisibilityHandler } from '../utils/src/index.js';
 
 const photoInput = document.querySelector('input[name="photo"]');
 
@@ -12,3 +13,10 @@ photoInput.addEventListener('input', async function(element) {
     profilePhoto.src = base;
 });
 
+window.onclick = (element) => {
+    hiddenDropdown(element);
+}
+
+document.getElementById('profile-dropdown-button').addEventListener('click', function(element) {
+    toggleDropdownVisibilityHandler(element.target);
+});
