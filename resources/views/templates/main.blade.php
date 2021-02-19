@@ -68,17 +68,17 @@
             <img class="w-full" src="{{ asset('img/swed-sm.png') }}" alt="Swed logo" />
         </a>
         <div class="h-full flex items-center">
-                <a class="h-full px-7 py-4 font-semibold text-gray-900 hover:bg-gray-200 animate-scale" href="#">Meus estabelecimentos</a>
+                <a class="h-full px-7 py-4 font-semibold text-gray-900 hover:bg-gray-200 animate-scale" href="{{ route('establishment.index') }}">Meus estabelecimentos</a>
                 <a class="h-full px-7 py-4 font-semibold text-gray-900 hover:bg-gray-200 animate-scale" href="#">Sobre</a>
                 <div id="profile-dropdown" class="h-full w-100-md inline-block relative justify-end group ">
                     <hr class="hr-sm">
 
                     <button id="profile-dropdown-button"
-                        class="h-full w-full px-4 py-2 font-semibold text-gray-900 focus:outline-none group-hover:bg-gray-200 inline-flex items-center"> <img class="mr-2 h-8 w-8 rounded-full" src="{{url('storage/avatar-img/{{$user->avatar}}.jpg')}}"/> João das Couves <i class="feather icon-chevron-down text-2xl ml-2"></i></button>
+                        class="h-full w-full px-4 py-2 font-semibold text-gray-900 focus:outline-none group-hover:bg-gray-200 inline-flex items-center"> <img class="mr-2 h-8 w-8 rounded-full" src="{{url('storage/perfil.jpg')}}"/> João das Couves <i class="feather icon-chevron-down text-2xl ml-2"></i></button>
 
                     <div id="profile-dropdown-content" class="absolute z-10 bg-white shadow-xl w-40 flex-col hidden">
-                        <a href="{{ route('profile.view') }}" class="py-2 px-4 w-full hover:bg-gray-200">Meu perfil</a>
-                        <a href="{{ route('profile.logout') }}" class="py-2 px-4 w-full hover:bg-gray-200">Sair</a>
+                        <a href="#" class="py-2 px-4 w-full hover:bg-gray-200">Meu perfil</a>
+                        <a href="#" class="py-2 px-4 w-full hover:bg-gray-200">Sair</a>
                     </div>
             </div>
         </div>
@@ -87,7 +87,7 @@
     @yield('main')
 
     @yield('footer')
-    
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     @yield('script')
 
