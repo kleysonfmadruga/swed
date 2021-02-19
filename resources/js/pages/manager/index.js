@@ -1,4 +1,5 @@
 import { reseteModal, activeNewCOntainer } from './src/index.js';
+import { hiddenDropdown, toggleDropdownVisibilityHandler } from '../utils/src/index.js';
 
 let functions = {
     reseteModal
@@ -23,4 +24,12 @@ document.querySelectorAll('[new-content]').forEach(element => {
             activeNewCOntainer(element)
         });
     }
+});
+
+window.onclick = (element) => {
+    hiddenDropdown(element);
+}
+
+document.getElementById('profile-dropdown-button').addEventListener('click', function(element) {
+    toggleDropdownVisibilityHandler(element.target);
 });
