@@ -39,6 +39,7 @@
                 </fieldset>
                 <input type="submit" value="Salvar" class="mt-7 bg-red-600 hover:bg-red-500 text-white font-semibold px-5 py-1 rounded cursor-pointer w-28" />
             </form>
+            <a href="#" class="mt-7 bg-red-600 hover:bg-red-500 text-white font-semibold px-5 py-1 rounded cursor-pointer w-60 text-center">Desativar meu perfil</a>
         </div>
     </main>
 @endsection
