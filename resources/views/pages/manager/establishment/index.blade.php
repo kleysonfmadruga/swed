@@ -1,7 +1,7 @@
 @extends('templates.main')
 
-@section('title')
-    {{ $name ?? 'Meu negócio' }}
+@section('pagename')
+    {{ $establishment->name ?? 'Meu negócio' }}
 @endsection
 
 @section('Local CSS')

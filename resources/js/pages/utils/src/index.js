@@ -12,4 +12,11 @@ function toggleDropdownVisibilityHandler(){
     dropMenu.classList.toggle('flex');
 }
 
-export { hiddenDropdown, toggleDropdownVisibilityHandler };
+const imageToBase64 = (image) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+});
+
+export { hiddenDropdown, toggleDropdownVisibilityHandler, imageToBase64 };

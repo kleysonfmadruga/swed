@@ -47,7 +47,6 @@
     <script src="{{ asset('libraries/toastr/js/toastr.min.js') }}"></script>
     <script src="{{ asset('libraries/toastr/js/local-toastr.js') }}"></script>
     <script type="module" src="{{ asset(mix('js/pages/edit-profile/index.js')) }}"></script>
-    <script type="module" src="{{ asset(mix('js/pages/manager/index.js')) }}"></script>
 
     @if ($errors->first())
         <script>
