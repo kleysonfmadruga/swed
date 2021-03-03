@@ -3,3 +3,8 @@ function withErros(message){
         `${message}`, 'Ops!', 
         { "showMethod": "slideDown", "hideMethod": "slideUp", timeOut: 2000 });
 }
+function withWarning(message){
+    toastr.warning(
+        `${message}`, 'Ops!', 
+        { "showMethod": "slideDown", "hideMethod": "slideUp", timeOut: 2000 });
+}
