@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
             CitiesSeeder::class,
             DefaultRolesSeeder::class,
             ProductsSeeder::class,
-            ServicesSeeder::class
-            
+            ServicesSeeder::class,
+            CategoriesSeeder::class
         ]);
     }
 }
