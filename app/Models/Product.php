@@ -16,11 +16,15 @@ class Product extends Model
         'name'
     ];
 
+    public function establishments(){
+        return $this->belongsToMany('establishments')->withPivot('product_id_establishment_id');
+    }
+
     public function saveProduct($request) {
         // dd($request);
         try {
             DB::beginTransaction();
-            
+
             $id = null;
 
             if (isset($request->product) && $request->product != 'new') {
@@ -47,7 +51,7 @@ class Product extends Model
             DB::rollback();
             return $th->getMessage();
         }
-        
+
     }
 
     public function deleteProduct($request){
