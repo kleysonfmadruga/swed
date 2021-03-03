@@ -17,6 +17,7 @@ syncResources('css/pages/manager/**/*.css', (src, dest) => mix.styles(src, dest)
 
 syncResources('js/pages/**/*.js', (src, dest) => mix.copy(src, dest).version());
 syncResources('js/etc/*.js', (src, dest) => mix.copy(src, dest).version());
+syncResources('js/etc/**/*.js', (src, dest) => mix.copy(src, dest).version());
 syncResources('fonts/**/*', (src, dest) => mix.copy(src, dest).version());
 
 syncResources('images/**/*', (src, dest) => mix.copy(src, dest).version());
@@ -25,7 +26,7 @@ require('laravel-mix-tailwind');
 
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
-            require('tailwindcss')
+        require('tailwindcss')
     ]);
 
 mix.browserSync('127.0.0.1:8000');
