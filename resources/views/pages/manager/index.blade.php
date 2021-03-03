@@ -13,6 +13,31 @@
         .select2-container{
             z-index: 100003 !important;
         }
+        .input {
+            border-radius: .4rem;
+            border: 1px solid rgba(0, 0, 0, .4) !important;
+        }
+        .container .select2-selection.select2-selection--single {
+            height: 2.5rem !important; 
+            padding-top: .3rem;
+        }
+        .container .select2-selection.select2-selection--single .select2-selection__arrow {
+            margin-top: .3rem !important;
+        }
+        .container .textarea{
+            padding: 0 10%;
+        }
+        .d-grid-2-column {
+            display: grid;   
+            grid-template-columns: [first] 39.5% [line2] 39.5%;
+            grid-column-gap: 1%;
+            /* grid-row-gap: 1em; */
+            justify-content: center
+        }
+        .pd-b-2 fieldset{
+            margin-top: .5rem;
+            grid-template-areas: [first] 1rem [line2] 0;
+        }
     </style>
 @endsection
 
@@ -30,8 +55,8 @@
                     route="{{ route('establishment.show', ['id' => $item->id]) }}"
                     name="{{ $item->name }}"
                     description="{{ $item->description ?? 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}}"
-                    image="{{ asset('img/triste.jpg') }}"
-                />         
+                    image="{{ url('storage/establishment/default.jpg') }}"
+                />
             @endforeach
         </div>
         <a show-modal="modal-new-establishment" function="reseteModal" class="h-52 w-full bg-gray-100 hover:bg-gray-200 border-gray-300 mt-5
@@ -43,56 +68,62 @@
 </main>
 
 <x-Modal classAbrirModal="new-establishment" titleModal="Cadastro de Estabelecimento" routeFormAction="{{ route('establishment.merge') }}">
-    <div class="flex">
-        <fieldset class="flex flex-col w-36 mr-10">
-            <label for="">Nome do estabelecimento</label>
-            <input type="text" placeholder="Informe o nome do estabelecimento" name="name">
+    <main class="container">
+        <fieldset class="flex flex-col textarea mb-1">
+            <label for="">Nome <span class="text-red-700">*</span></label>
+            <input class="input" type="text" required placeholder="Informe o nome do estabelecimento" name="name">
         </fieldset>
-        <fieldset class="flex flex-col w-36">
-            <label for="">Descrição do estabelecimento</label>
-            <textarea type="text" placeholder="Informe a descrição do estabelecimento" name="description"></textarea>
+        <fieldset class="flex flex-col textarea">
+            <label for="">Descrição <span class="text-red-700">*</span></label>
+            <textarea class="input" name="description" required placeholder="Informe a descrição do estabelecimento"></textarea>
         </fieldset>
-        
-    </div>
-    <div class="flex">
-        <fieldset class="flex flex-col w-36 mr-10">
-            <label for="">CNPJ do estabelecimento</label>
-            <input type="text" placeholder="Informe o CNPJ do estabelecimento" name="cnpj">
-        </fieldset>
-        <fieldset class="flex flex-col w-36">
-            <label for="">Horário de funcionamento</label>
-            <input type="text" placeholder="Informe o horário de funcionamento" name="opening_hours">
-        </fieldset>
-    </div>
-    <div class="flex">
-        <fieldset class="flex flex-col w-36 mr-10">
-            <label for="">Informe o CEP</label>
-            <input type="text" placeholder="Informe o CEP" name="cep">
-        </fieldset>
-        <fieldset class="flex flex-col w-36">
-            <label for="">Celular</label>
-            <input type="text" placeholder="Informe o celular do estabelecimento" name="phone">
-        </fieldset>
-    </div>
-    <div class="flex">
-        <fieldset class="flex flex-col w-36 mr-10">
-            <label for="">Informe a Rua</label>
-            <input type="text" placeholder="Informe o rua do estabelecimento" name="street">
-        </fieldset>
-        <fieldset class="flex flex-col w-36">
-            <label for="">Informe o Bairro</label>
-            <input type="text" placeholder="Informe o bairro do estabelecimento" name="neighborhood">
-        </fieldset>
-    </div>
-    <fieldset class="flex flex-col w-36">
-        <label for="">Selecione a cidade</label>
-        <select name="cities" id="cities" class="select2">
-            <option value="all">Todas as cidades</option>
-            @foreach ($cities as $item)
-                <option value="{{ $item->id }}">{{ $item->name }} / {{ $item->abbreviation_state}}</option>
-            @endforeach
-        </select>
-    </fieldset>
+        <div class="d-grid-2-column pd-b-2">
+            <fieldset class="flex flex-col">
+                <label for="">CNPJ <span class="text-red-700">*</span></label>
+                <input class="input cnpj" type="text" required placeholder="Informe o CNPJ do estabelecimento" name="cnpj">
+            </fieldset>
+            <fieldset class="flex flex-col">
+                <label for="">Horário de funcionamento <span class="text-red-700">*</span></label>
+                <input class="input time-in-time" type="text" required placeholder="Informe o horário de funcionamento" name="opening_hours">
+            </fieldset>
+            <fieldset class="flex flex-col">
+                <label for="">Informe o CEP <span class="text-red-700">*</span></label>
+                <input class="input cep" type="text" required placeholder="Informe o CEP" name="cep">
+            </fieldset>
+            <fieldset class="flex flex-col">
+                <label for="">Celular <span class="text-red-700">*</span></label>
+                <input class="input celular" type="text" required placeholder="Informe o celular do estabelecimento" name="phone">
+            </fieldset>
+            <fieldset class="flex flex-col">
+                <label for="">Informe a Rua <span class="text-red-700">*</span></label>
+                <input class="input" type="text" required placeholder="Informe o rua do estabelecimento" name="street">
+            </fieldset>
+            <fieldset class="flex flex-col">
+                <label for="">Informe o Bairro <span class="text-red-700">*</span></label>
+                <input class="input" type="text" required placeholder="Informe o bairro do estabelecimento" name="neighborhood">
+            </fieldset>
+        </div>
+        <div class="d-grid-2-column mt-1">
+            <fieldset class="flex flex-col">
+                <label for="">Selecione a cidade <span class="text-red-700">*</span></label>
+                <select name="cities" id="cities" required class="select2">
+                    <option value="all">Todas as cidades</option>
+                    @foreach ($cities as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }} / {{ $item->abbreviation_state}}</option>
+                    @endforeach
+                </select>
+            </fieldset>
+            <fieldset class="flex flex-col">
+                <label for="">Selecione a categoria <span class="text-red-700">*</span></label>
+                <select name="categories" required id="categories" class="select2">
+                    <option value="all">Todas as categorias</option>
+                    @foreach ($categories as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </fieldset>
+        </div>    
+    </main>
 </x-Modal>
 @endsection
 
@@ -114,5 +145,5 @@
         withErros(error);
     </script>
 @endif
-    
+
 @endsection
