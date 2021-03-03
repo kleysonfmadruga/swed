@@ -16,20 +16,45 @@
         <a href="{{ route('dashboard.index') }}" class="flex items-center px-7 h-full hover:bg-opacity-50 duration-200">
             <img class="w-full" src="{{ asset('img/swed-negative-sm.png') }}" alt="Swed logo" />
         </a>
-        <div class="h-full flex items-center">
-            <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="#">Cidades Mapeadas</a>
-            <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="#">Quem somos</a>
-            <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="#">Sobre</a>
-            <div id="profile-dropdown" class="h-full w-24 inline-block relative justify-end group">
-                <button id="profile-dropdown-button"
-                    class="h-full w-full font-semibold text-white focus:outline-none group-hover:bg-red-500" href="#">Login</button>
+        @if (!Auth::check())
+            <div class="h-full flex items-center">
+                <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="#">Cidades Mapeadas</a>
+                <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="#">Quem somos</a>
+                <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="#">Sobre</a>
+                <div id="profile-dropdown" class="h-full w-24 inline-block relative justify-end group">
+                    <button id="profile-dropdown-button"
+                        class="h-full w-full font-semibold text-white focus:outline-none group-hover:bg-red-500" href="#">Login</button>
 
-                <div id="profile-dropdown-content" class="absolute inset-x-15 z-10 bg-white shadow-sm w-24 flex-col hidden">
-                    <a href="{{ route('login.gerente') }}" class="py-2 px-4 w-full hover:bg-gray-200">Gerente</a>
-                    <a href="{{ route('login.cliente') }}" class="py-2 px-4 w-full hover:bg-gray-200">Cliente</a>
+                    <div id="profile-dropdown-content" class="absolute inset-x-15 z-10 bg-white shadow-sm w-24 flex-col hidden">
+                        <a href="{{ route('login.gerente') }}" class="py-2 px-4 w-full hover:bg-gray-200">Gerente</a>
+                        <a href="{{ route('login.cliente') }}" class="py-2 px-4 w-full hover:bg-gray-200">Cliente</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @else
+            <div class="h-full flex items-center">
+                <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="#">Cidades Mapeadas</a>
+                <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="#">Quem somos</a>
+                @if (Session::get('role')->id == 1)                    
+                    <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="{{ route('establishment.index', ['id' => Auth::user()->id]) }}">Meus estabelecimentos</a>
+                @endif
+                <a class="h-full px-7 py-4 font-semibold text-white hover:bg-red-500 animate-scale" href="#">Sobre</a>
+                <div id="profile-dropdown" class="h-full w-100-md inline-block relative justify-end group ">
+                    <hr class="hr-sm">
+
+                    <button id="profile-dropdown-button"
+                        class="h-full w-full font-semibold text-white focus:outline-none group-hover:bg-red-500 inline-flex items-center">
+                        <img class="mr-2 h-8 w-8 rounded-full" @if(Auth::user()->photo) src="{{url(Auth::user()->photo)}}" @else src="{{ asset('storage/profile_photo/default.png') }}" @endif/> {{ Auth::user()->name }}
+                        <i class="feather icon-chevron-down text-2xl ml-2"></i>
+                    </button>
+
+                    <div id="profile-dropdown-content" class="absolute z-10 bg-white shadow-xl w-40 flex-col hidden">
+                        <a href="{{ route('profile.index', Auth::user()->id) }}" class="py-2 px-4 w-full hover:bg-gray-200"><span>Meu perfil</span></a>
+                        <a href="{{ route('profile.logout') }}" class="py-2 px-4 w-full hover:bg-gray-200"><span>Sair</span></a>
+                    </div>
+                </div>
+            </div>
+        @endif
     </header>
 
     @yield('main')
