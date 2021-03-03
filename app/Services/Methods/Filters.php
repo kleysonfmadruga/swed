@@ -30,7 +30,7 @@ class Filters extends Model
     }
 
     static public function makeArrayEstablishmentServices($id) {
-        
+
         $response = [];
         $service_establishment = DB::table('service_id_establishment_id')
         ->where('establishment_id', $id)->get();
@@ -74,6 +74,17 @@ class Filters extends Model
         $services = DB::table('services')->get();
 
         foreach($services as $key => $item){
+            $response[$key] = $item;
+        }
+
+        return $response;
+    }
+
+    static public function makeArrayCategories(){
+        $response = [];
+        $categories = DB::table('categories')->get();
+
+        foreach($categories as $key => $item){
             $response[$key] = $item;
         }
 
