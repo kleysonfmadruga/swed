@@ -16,10 +16,13 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
         'cpf',
+        'photo',
+        'enabled'
     ];
 
     protected $hidden = [
@@ -43,11 +46,23 @@ class User extends Authenticatable
                 throw new \Error('O email: '.$request->email.' já está cadastrado!');
             }
 
+            $photoPath = "";
+
+            if ($request->hasFile('photo')){
+                $photoFile = $request->allFiles()['photo'][0];
+                $photoPath = $photoFile->store('profile_photo');
+            } else {
+                $photoPath = "profile_photo/default.png";
+            }
+
             DB::beginTransaction();
 
             $this->name = $request->name;
             $this->email = $request->email;
             $this->password = Hash::make($request->password);
+            $this->photo = "storage/".$photoPath;
+
+            $this->enabled = true;
             $this->save();
 
             DB::commit();

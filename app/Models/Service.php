@@ -16,6 +16,10 @@ class Service extends Model
         'name'
     ];
 
+    public function establishments(){
+        return $this->belongsToMany('establishments')->withPivot('service_id_establishment_id');
+    }
+
     public function saveService($request) {
         try {
             DB::beginTransaction();

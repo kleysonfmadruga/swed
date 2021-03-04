@@ -123,11 +123,11 @@
                     </div>
                     <div class="flex flex-col justify-evenly w-1/3">
                         <h2 class="text-lg font-bold">CNPJ</h2>
-                        <p>{{ $establishment->cnpj ?? '12.345.678/9012-34' }}</p>
+                        <p>{{ vsprintf(str_replace('%', '%s', '%%.%%%.%%%/%%%%-%%'), str_split($establishment->cnpj)) ?? '12.345.678/9012-34' }}</p>
                     </div>
                     <div class="flex flex-col justify-evenly w-1/3">
                         <h2 class="text-lg font-bold">Telefone de contato</h2>
-                        <p>{{ $establishment->getPhone() ?? '+0000' }}</p>
+                        <p>{{ $establishment->getPhone() ?? '+0000000000000' }}</p>
                     </div>
                 </div>
                 <div class="flex justify-evenly items-center mt-8">
@@ -198,7 +198,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="m-5"></div>
+            {{-- <div class="m-5"></div>
             <div class="flex flex-row mt-2 mb-24 items-center">
                 <i class="feather icon-star-on text-yellow-400 text-xl"></i>
                 <i class="feather icon-star-on text-yellow-400 text-xl"></i>
@@ -206,7 +206,7 @@
                 <i class="feather icon-star-on text-yellow-400 text-xl"></i>
                 <i class="feather icon-star text-yellow-400 text-xl"></i>
                 <p class="ml-2">4.5</p>
-            </div>
+            </div> --}}
         </div>
 
     </main>
